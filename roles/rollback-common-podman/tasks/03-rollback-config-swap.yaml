@@ -1,8 +1,8 @@
 ---
 
-- name: agregando host en /etc/hosts
+- name: agregando host en /etc/fstab
   lineinfile:
-    path: /etc/hosts
+    path: /etc/fstab
     line: "/dev/mapper/cs-{{ansible_hostname}}-swap     none                    swap    defaults        0 0"
     state: present
   become: yes
