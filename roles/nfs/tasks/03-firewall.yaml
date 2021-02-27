@@ -1,0 +1,17 @@
+---
+
+- name: firewall-cmd --permanent --add-service=nfs
+  command: "firewall-cmd --permanent --add-service=nfs"
+  become: yes
+
+- name: firewall-cmd --permanent --add-service=rpc-bind
+  command: "firewall-cmd --permanent --add-service=rpc-bind"
+  become: yes
+
+- name: firewall-cmd --permanent --add-service=mountd
+  command: "firewall-cmd --permanent --add-service=mountd"
+  become: yes
+
+- name: firewall-cmd --reload
+  command: "firewall-cmd --reload"
+  become: yes

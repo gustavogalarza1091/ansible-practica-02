@@ -27,3 +27,7 @@
 - name: echo "/dev/data_vg/nfs_lv        /srv/nfs                xfs     defaults        0 0" >> /etc/fstab
   command: "echo \"{{prefijo_disk}}{{volume_group}}/{{logical_name}}        {{dir_nfs}}                xfs     defaults        0 0\" >> /etc/fstab"
   become: yes
+
+- name: mount -a
+  command: "mount -a"
+  become: yes

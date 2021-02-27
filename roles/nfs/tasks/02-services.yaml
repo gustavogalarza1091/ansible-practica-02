@@ -1,0 +1,26 @@
+---
+
+- name: systemctl  enable nfs-server
+  command: "systemctl enable nfs-server"
+  become: yes
+
+- name: systemctl start nfs-server
+  command: "systemctl start nfs-server"
+  become: yes
+
+- name: agregando ips /etc/exports
+    lineinfile:
+      path: /etc/exports
+      line: "{{ item }}(rw,sync)"
+      state: present
+    become: yes
+    with_items:
+    - "{{ ips }}"
+
+- name: exportfs -r
+  command: "exportfs -r"
+  become: yes
+
+- name: exportfs -s
+  command: "exportfs -s"
+  become: yes

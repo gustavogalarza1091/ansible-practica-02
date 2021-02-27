@@ -1,8 +1,15 @@
 ---
 
 prefijo_disk: '/dev/'
+
 disk: '{{prefijo_disk}}sdb'
+
 volume_group: 'data_vg'
+
 volume_space_mb: '2559'
+
 logical_name: 'nfs_lv'
+
 dir_nfs: '/srv/nfs'
+
+ips: ['192.168.81.129','192.168.81.130','192.168.81.131']
