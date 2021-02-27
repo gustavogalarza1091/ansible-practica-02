@@ -4,6 +4,6 @@
   command: "swapoff -a"
   become: yes
 
-- name: sed -i '/swap/d' /etc/fsta
-  command: "sed -i '/swap/d' /etc/fsta"
+- name: sed -i '/swap/d' /etc/fstad
+  command: "sed -i '/swap/d' /etc/fstad"
   become: yes
