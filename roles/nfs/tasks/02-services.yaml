@@ -9,12 +9,12 @@
   become: yes
 
 - name: agregando ips /etc/exports
-    lineinfile:
-      path: /etc/exports
-      line: "/srv/nfs	{{ item }}(rw,sync)"
-      state: present
-    become: yes
-    with_items:
+  lineinfile:
+    path: /etc/exports
+    line: "/srv/nfs	{{ item }}(rw,sync)"
+    state: present
+  become: yes
+  with_items:
     - "{{ ips }}"
 
 - name: exportfs -r
