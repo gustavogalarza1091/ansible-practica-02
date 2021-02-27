@@ -1,0 +1,29 @@
+---
+
+- name: pvcreate /dev/sda
+  command: "pvcreate {{ disk }}"
+  become: yes
+
+- name: vgcreate data_vg /dev/sda
+  command: "vgcreate {{volume_group}} {{ disk }}"
+  become: yes
+
+- name: vgdisplay data_vg
+  command: "vgdisplay {{volume_group}}"
+  become: yes
+
+- name: lvcreate -l+2559 -n nfs_lv /dev/data_vg
+  command: "lvcreate -l+{{volume_space_mb}} -n {{logical_name}} {{prefijo_disk}}{{volume_group}}"
+  become: yes
+
+- name: mkfs.xfs /dev/data_vg/nfs_lv
+  command: "mkfs.xfs {{prefijo_disk}}{{volume_group}}/{{logical_name}}"
+  become: yes
+
+- name: mkdir /srv/nfs
+  command: "mkdir /srv/nfs"
+  become: yes
+
+- name: echo "/dev/data_vg/nfs_lv        /srv/nfs                xfs     defaults        0 0" >> /etc/fstab
+  command: "echo \"{{prefijo_disk}}{{volume_group}}/{{logical_name}}        {{dir_nfs}}                xfs     defaults        0 0\" >> /etc/fstab"
+  become: yes

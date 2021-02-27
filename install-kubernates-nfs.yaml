@@ -1,9 +1,11 @@
 ---
 
-- name: installing kubernates worker
+- name: installing kubernates nfs
   hosts: nfs
   vars_files:
     - "group_vars/common.yaml"
+    - "group_vars/nfs.yaml"
   gather_facts: false
   roles:
     - common
+    - nfs
