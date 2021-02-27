@@ -1,7 +1,7 @@
 ---
 
 - name: installing kubernates master
-  hosts: master.local
+  hosts: master
   vars_files:
     - "group_vars/common.yaml"
   gather_facts: false
