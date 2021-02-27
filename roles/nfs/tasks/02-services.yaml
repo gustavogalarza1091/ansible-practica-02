@@ -11,7 +11,7 @@
 - name: agregando ips /etc/exports
     lineinfile:
       path: /etc/exports
-      line: "{{ item }}(rw,sync)"
+      line: "/srv/nfs	{{ item }}(rw,sync)"
       state: present
     become: yes
     with_items:
