@@ -1,0 +1,7 @@
+- name: sed -i s/=enforcing/=disabled/g /etc/selinux/config
+  command: "sed -i s/=enforcing/=disabled/g /etc/selinux/config"
+  become: yes
+
+- name: dnf install nfs-utils nfs4-acl-tools wget -y
+  command: "dnf install nfs-utils nfs4-acl-tools wget -y"
+  become: yes

@@ -1,0 +1,22 @@
+---
+
+- name: set time zone
+  command: "timedatectl set-timezone America/Lima"
+  become: yes
+
+- name: install chrony
+  command: "dnf install chrony -y"
+  become: yes
+
+- name: systemctl enable chronyd
+  command: "systemctl enable chronyd"
+  become: yes
+
+- name: systemctl start chronyd
+  command: "systemctl start chronyd"
+  become: yes
+
+- name: timedatectl set-ntp true
+  command: "timedatectl set-ntp true"
+  become: yes
+
