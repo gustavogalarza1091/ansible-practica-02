@@ -3,7 +3,7 @@
 - name: agregando host en /etc/fstab
   lineinfile:
     path: /etc/fstab
-    line: "/dev/mapper/cs-{{ansible_hostname}}-swap     none                    swap    defaults        0 0"
+    line: "/dev/mapper/cs-{{hostvars[inventory_hostname]['ansible_host']}}-swap     none                    swap    defaults        0 0"
     state: present
   become: yes
 
