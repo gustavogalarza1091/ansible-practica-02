@@ -1,0 +1,9 @@
+---
+
+- name: 99-rollback-common-podman
+  hosts: all
+  vars_files:
+    - "group_vars/common-podman.yaml"
+  gather_facts: false
+  roles:
+    - rollback-common-podman

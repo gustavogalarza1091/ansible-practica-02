@@ -1,3 +1,5 @@
+---
+
 - name: vgchange -a n data_vg
   command: "vgchange -a n {{volume_group}}"
   become: yes

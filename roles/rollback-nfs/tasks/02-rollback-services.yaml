@@ -1,3 +1,5 @@
+---
+
 - name: eliminando ips /etc/exports
   lineinfile:
     path: /etc/exports

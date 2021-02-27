@@ -1,0 +1,13 @@
+---
+
+- name: modprobe br_netfilter
+  command: "modprobe br_netfilter"
+  become: yes
+
+- name: firewall-cmd --add-masquerade --permanent
+  command: "firewall-cmd --add-masquerade --permanent"
+  become: yes
+
+- name: firewall-cmd --reload
+  command: "firewall-cmd --reload"
+  become: yes

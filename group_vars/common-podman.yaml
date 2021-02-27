@@ -1,0 +1,20 @@
+---
+
+hosts: [{
+    ip: '192.168.1.129',
+    name: 'master',
+    host: 'master.local.pe'
+  },{
+    ip: '192.168.1.130',
+    name: 'worker1',
+    host: 'worker1.local.pe'
+  },{
+    ip: '192.168.1.131',
+    name: 'worker2',
+    host: 'worker2.local.pe'
+  },
+  {
+    ip: '192.168.1.129',
+    name: 'nfs',
+    host: 'nfs.local.pe'
+  }]

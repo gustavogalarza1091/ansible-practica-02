@@ -1,0 +1,12 @@
+---
+
+- name: agregando host en /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "/dev/mapper/cs-{{ansible_hostname}}-swap     none                    swap    defaults        0 0"
+    state: present
+  become: yes
+
+- name: swapon -a
+  command: "swapon -a"
+  become: yes

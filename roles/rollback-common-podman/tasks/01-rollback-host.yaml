@@ -1,0 +1,11 @@
+---
+
+- name: eliminando hosts /etc/host
+  lineinfile:
+    path: /etc/host
+    regexp: "^{{ item.ip }}$"
+    state: absent
+    backup: yes
+  become: yes
+  with_items:
+    - "{{ hosts }}"

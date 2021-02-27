@@ -1,0 +1,10 @@
+---
+
+- name: agregando host en /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }} {{item.name}} {{item.host}}"
+    state: present
+  become: yes
+  with_items:
+    - "{{ hosts }}"

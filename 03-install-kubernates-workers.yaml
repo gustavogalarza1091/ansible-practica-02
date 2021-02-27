@@ -4,6 +4,8 @@
   hosts: workers
   vars_files:
     - "group_vars/common.yaml"
+    - "group_vars/common-podman.yaml"
   gather_facts: false
   roles:
     - common
+    - common-podman

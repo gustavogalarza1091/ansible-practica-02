@@ -1,0 +1,17 @@
+---
+
+- name: cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+  command: "cat <<EOF > /etc/yum.repos.d/kubernetes.repo"
+  become: yes
+
+- name: dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  command: "dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes"
+  become: yes
+
+- name: systemctl enable kubelet
+  command: "systemctl enable kubelet"
+  become: yes
+
+- name: systemctl start kubelet
+  command: "systemctl start kubelet"
+  become: yes
