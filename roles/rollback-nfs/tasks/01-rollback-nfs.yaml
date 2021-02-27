@@ -14,8 +14,8 @@
   command: "vgchange -a n {{volume_group}}"
   become: yes
 
-- name: vgremove data_vg
-  command: "vgremove {{volume_group}}"
+- name: vgremove data_vg -y
+  command: "vgremove {{volume_group}} -y"
   become: yes
 
 - name: rm -rf /srv/nfs
