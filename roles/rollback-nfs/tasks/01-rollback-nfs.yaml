@@ -5,3 +5,7 @@
 - name: vgremove data_vg -y
   command: "vgremove {{volume_group}} -y"
   become: yes
+
+- name: rm -rf /srv/nfs
+  command: "rm -r /srv/nfs"
+  become: yes
