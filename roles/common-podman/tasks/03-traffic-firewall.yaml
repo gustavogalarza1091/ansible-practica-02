@@ -1,5 +1,9 @@
 ---
 
+- name: mkdir /etc/sysctl.d/k8s.conf
+  command: "mkdir /etc/sysctl.d/k8s.conf"
+  become: yes
+
 - name: bash -c 'echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf'
   command: "bash -c 'echo \"net.bridge.bridge-nf-call-ip6tables = 1\" > /etc/sysctl.d/k8s.conf'"
   become: yes
