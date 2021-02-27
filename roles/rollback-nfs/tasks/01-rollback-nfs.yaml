@@ -1,23 +1,7 @@
-- name: umount /nfs_lv
-  command: "umount /{{logical_name}}}"
-  become: yes
-
-- name: lvchange -an /dev/datavg/nfs_lv
-  command: "lvchange -an {{prefijo_disk}}{{volume_group}}/{{logical_name}}"
-  become: yes
-
-- name: lvremove /dev/datavg/nfs_lv
-  command: "lvremove {{prefijo_disk}}{{volume_group}}/{{logical_name}}"
-  become: yes
-
 - name: vgchange -a n data_vg
   command: "vgchange -a n {{volume_group}}"
   become: yes
 
 - name: vgremove data_vg -y
   command: "vgremove {{volume_group}} -y"
-  become: yes
-
-- name: rm -rf /srv/nfs
-  command: "rm -r /srv/nfs"
   become: yes

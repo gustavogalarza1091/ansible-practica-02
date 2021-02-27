@@ -1,0 +1,9 @@
+- name: eliminando ips /etc/exports
+  lineinfile:
+    path: /etc/exports
+    regexp: "^{{ item }}$"
+    state: absent
+    backup: yes
+  become: yes
+  with_items:
+    - "{{ ips }}"
