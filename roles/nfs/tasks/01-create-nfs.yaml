@@ -12,8 +12,8 @@
   command: "vgdisplay {{volume_group}}"
   become: yes
 
-- name: lvcreate -l+2559 -n nfs_lv /dev/data_vg
-  command: "lvcreate -l+{{volume_space_mb}} -n {{logical_name}} {{prefijo_disk}}{{volume_group}}"
+- name: lvcreate -l+2559 -n nfs_lv /dev/data_vg -y
+  command: "lvcreate -l+{{volume_space_mb}} -n {{logical_name}} {{prefijo_disk}}{{volume_group}} -y"
   become: yes
 
 - name: mkfs.xfs /dev/data_vg/nfs_lv
