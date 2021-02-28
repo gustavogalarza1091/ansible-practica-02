@@ -11,7 +11,7 @@
     state: present
   become: yes
   with_items:
-    - "{{k8s-content}}"
+    - "{{k8s.content}}"
 
 - name: sysctl --system
   command: "sysctl --system"

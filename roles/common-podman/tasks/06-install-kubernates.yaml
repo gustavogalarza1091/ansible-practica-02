@@ -11,7 +11,7 @@
     state: present
   become: yes
   with_items:
-    - "{{kubernate-repo-content}}"
+    - "{{kubernate.repo.content}}"
 
 - name: dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
   command: "dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes"
