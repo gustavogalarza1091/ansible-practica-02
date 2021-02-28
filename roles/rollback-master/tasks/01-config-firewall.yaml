@@ -1,0 +1,29 @@
+---
+
+- name: firewall-cmd --permanent --remove-port=6443/tcp
+  command: "firewall-cmd --permanent --remove-port=6443/tcp"
+  become: yes
+
+- name: firewall-cmd --permanent --remove-port=2379-2380/tcp
+  command: "firewall-cmd --permanent --remove-port=2379-2380/tcp"
+  become: yes
+
+- name: firewall-cmd --permanent --remove-port=10250/tcp
+  command: "firewall-cmd --permanent --remove-port=10250/tcp"
+  become: yes
+
+- name: firewall-cmd --permanent --remove-port=10251/tcp
+  command: "firewall-cmd --permanent --remove-port=10251/tcp"
+  become: yes
+
+- name: firewall-cmd --permanent --remove-port=10252/tcp
+  command: "firewall-cmd --permanent --remove-port=10252/tcp"
+  become: yes
+
+- name: firewall-cmd --permanent --remove-port=10255/tcp
+  command: "firewall-cmd --permanent --remove-port=10255/tcp"
+  become: yes
+
+- name: firewall-cmd --reload
+  command: "firewall-cmd --reload"
+  become: yes

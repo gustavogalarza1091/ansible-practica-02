@@ -13,7 +13,7 @@
     path: /custom-resources.yaml
     after: 'cidr:'
     regexp: '^(.+)$'
-    replace: '{{network-cidr}}'
+    replace: '{{network_cidr}}'
 
 - name: kubectl apply -f custom-resources.yaml
   command: "kubectl apply -f custom-resources.yaml"
