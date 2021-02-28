@@ -7,3 +7,4 @@
     - name: Copy Remote-To-Remote
       synchronize: src=~/tmp.conf dest=~/tmp.conf
       delegate_to: master
+      become: yes
