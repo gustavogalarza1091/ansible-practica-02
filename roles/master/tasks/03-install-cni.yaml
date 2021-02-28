@@ -1,12 +1,12 @@
 ---
 - name: kubeadm reset
-  shell: "kubeadm reset --ignore-preflight-errors=all --force"
+  shell: "sudo kubeadm reset --ignore-preflight-errors=all --force"
   register: reset_cluster
 
 - name: kubeadm init
   when: reset_cluster is succeeded
   shell: |
-    kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
+    sudo kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
   register: init_cluster
 
 - name: copy init_cluster
