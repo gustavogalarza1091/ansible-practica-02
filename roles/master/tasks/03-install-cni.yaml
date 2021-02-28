@@ -1,6 +1,6 @@
 ---
 - name: kubeadm reset
-  shell: "kubeadm reset --force"
+  shell: "kubeadm reset --ignore-preflight-errors=all --force"
   register: reset_cluster
 
 - name: kubeadm init
