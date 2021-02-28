@@ -1,0 +1,14 @@
+---
+
+- name: rm -rf /etc/yum.repos.d/kubernetes.repo
+  command: "rm -rf /etc/yum.repos.d/kubernetes.repo"
+  become: yes
+
+
+- name: systemctl disable kubelet
+  command: "systemctl disable kubelet"
+  become: yes
+
+- name: systemctl stop kubelet
+  command: "systemctl stop kubelet"
+  become: yes

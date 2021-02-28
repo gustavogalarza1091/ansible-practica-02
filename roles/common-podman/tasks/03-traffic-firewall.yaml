@@ -4,21 +4,14 @@
   command: "touch /etc/sysctl.d/k8s.conf"
   become: yes
 
-- name: bash -c 'echo "net.bridge.bridge-nf-call-ip6tables = 1" > /etc/sysctl.d/k8s.conf'
-  command: "bash -c 'echo \"net.bridge.bridge-nf-call-ip6tables = 1\" > /etc/sysctl.d/k8s.conf'"
+- name: agregando contenido a /etc/sysctl.d/k8s.conf
+  lineinfile:
+    path: /etc/sysctl.d/k8s.conf
+    line: "{{item}}"
+    state: present
   become: yes
-
-- name: bash -c 'echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/k8s.conf'
-  command: "bash -c 'echo \"net.bridge.bridge-nf-call-iptables = 1\" >> /etc/sysctl.d/k8s.conf'"
-  become: yes
-
-- name: sysctl --system
-  command: "sysctl --system"
-  become: yes
-
-- name: bash -c echo "EOF" >> /etc/sysctl.d/k8s.conf
-  command: "bash -c echo \"EOF\" >> /etc/sysctl.d/k8s.conf"
-  become: yes
+  with_items:
+    - "{{k8s-content}}"
 
 - name: sysctl --system
   command: "sysctl --system"

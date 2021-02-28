@@ -1,8 +1,17 @@
 ---
 
-- name: cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-  command: "cat <<EOF > /etc/yum.repos.d/kubernetes.repo"
+- name: touch /etc/yum.repos.d/kubernetes.repo
+  command: "touch /etc/yum.repos.d/kubernetes.repo"
   become: yes
+
+- name: agregando contenido a /etc/yum.repos.d/kubernetes.repo
+  lineinfile:
+    path: /etc/yum.repos.d/kubernetes.repo
+    line: "{{item}}"
+    state: present
+  become: yes
+  with_items:
+    - "{{kubernate-repo-content}}"
 
 - name: dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
   command: "dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes"

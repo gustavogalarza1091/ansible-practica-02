@@ -3,3 +3,5 @@
 - include_tasks: 01-rollback-host.yaml
 - include_tasks: 02-rollback-traffic-firewall.yaml
 - include_tasks: 03-rollback-config-swap.yaml
+- include_tasks: 04-rollback-install-docker.yaml
+- include_tasks: 05-rollback-install-kubernates.yaml
