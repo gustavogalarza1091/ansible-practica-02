@@ -6,5 +6,6 @@
   become: yes
 
 - name: kubeadm join X.X.X.X:6443 --token --discovery-token-ca-cert-hash sha256
-  command: "{{kubeadm_join}}"
+  shell: | 
+   {{kubeadm_join}}
   become: yes
