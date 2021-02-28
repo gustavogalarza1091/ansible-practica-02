@@ -4,17 +4,18 @@
   command: "kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml"
   become: yes
 
-- name: wget https://docs.projectcalico.org/manifests/custom-resources.yaml
-  command: "wget https://docs.projectcalico.org/manifests/custom-resources.yaml"
+- name: wget -p https://docs.projectcalico.org/manifests/custom-resources.yaml
+  get_url: https://docs.projectcalico.org/manifests/custom-resources.yaml
+  dest: ~/custom-resources.yaml
   become: yes
 
 - name: Replace between the expressions (requires Ansible >= 2.4)
   ansible.builtin.replace:
-    path: /custom-resources.yaml
+    path: ~/custom-resources.yaml
     after: 'cidr:'
     regexp: '^(.+)$'
     replace: '{{network_cidr}}'
 
-- name: kubectl apply -f custom-resources.yaml
-  command: "kubectl apply -f custom-resources.yaml"
+- name: kubectl apply -f ~/custom-resources.yaml
+  command: "kubectl apply -f ~/custom-resources.yaml"
   become: yes
