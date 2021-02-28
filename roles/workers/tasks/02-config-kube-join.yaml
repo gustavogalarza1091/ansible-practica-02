@@ -1,7 +1,8 @@
 ---
 
 - name: cat c | grep -A 2 "kubeadm join"
-  shell: "cat /home/ansible/tmp.conf | grep -A 2 \"kubeadm join\""
+  shell: |
+    cat /home/ansible/tmp.conf | grep -A 2 'kubeadm join'
   register: kubeadm_join
   become: yes
 
