@@ -1,11 +1,14 @@
 ---
+- name: kubeadm reset
+  shell: "kubeadm reset --force"
+  register: reset_cluster
 
-#- name: kubeadm init
-#  tasks:
-#    - name: kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
-#      shell: kubeadm init --pod-network-cidr 192.169.0.0/16  --ignore-preflight-errors=all| grep kubeadm | awk '{print $1}'
-#      register: kubeadm_init
-#      local_action: copy content={{kubeadm_init.stdout | regex_search(regexp,'^kubeadm$') }} dest=~/tmp.conf
-#
-#    - name: kubeadm init --pod-network-cidr 192.169.0.0/16
-#      debug: msg="kubeadm_init={{kubeadm_init}}"
+- name: kubeadm init
+  when: reset_cluster is succeeded
+  shell: |
+    kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
+  register: init_cluster
+
+- name: copy init_cluster
+  when: init_cluster is succeeded
+  local_action: copy content={{init_cluster.stdout | regex_search(regexp,'^kubeadm$') }} dest=~/tmp.conf
