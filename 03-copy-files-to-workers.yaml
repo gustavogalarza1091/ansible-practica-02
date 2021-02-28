@@ -8,3 +8,7 @@
       synchronize: src=~/tmp.conf dest=~/tmp.conf
       delegate_to: master
       become: yes
+    - name: Copy admin.conf
+      synchronize: src=/etc/kubernetes/admin.conf dest=/etc/kubernetes/admin.conf
+      delegate_to: master
+      become: yes
