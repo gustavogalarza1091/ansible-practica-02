@@ -7,6 +7,7 @@ master.local
 
 [workers]
 worker1.local
+worker2.local
 
 [nfs]
 master.local

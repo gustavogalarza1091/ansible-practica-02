@@ -1,0 +1,5 @@
+---
+
+- name: rm -rf /root/.kube
+  command: "rm -rf /root/.kube"
+  become: yes

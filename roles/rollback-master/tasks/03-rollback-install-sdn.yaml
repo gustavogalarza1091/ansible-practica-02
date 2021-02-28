@@ -1,0 +1,7 @@
+- name: Replace between the expressions (requires Ansible >= 2.4)
+  ansible.builtin.replace:
+    path: /custom-resources.yaml
+    after: 'cidr:'
+    regexp: '^(.+)$'
+    replace: ''
+

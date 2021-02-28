@@ -1,0 +1,5 @@
+---
+
+- include_tasks: 01-rollback-install-cni.yaml
+- include_tasks: 02-rollback-authorizate-user.yaml
+- include_tasks: 03-rollback-install-sdn.yaml

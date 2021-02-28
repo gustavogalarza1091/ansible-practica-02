@@ -1,0 +1,9 @@
+---
+
+- name: 99-rollback-master
+  hosts: master
+  vars_files:
+    - "group_vars/master.yaml"
+  gather_facts: false
+  roles:
+    - rollback-master
