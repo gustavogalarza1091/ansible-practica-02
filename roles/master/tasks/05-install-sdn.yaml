@@ -1,12 +1,12 @@
 ---
 
-- name: kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
-  command: "kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml"
+- name: kubectl create -f http://docs.projectcalico.org/manifests/tigera-operator.yaml
+  command: "kubectl create -f http://docs.projectcalico.org/manifests/tigera-operator.yaml"
   become: yes
 
 - name: get calico
   get_url: 
-    url: https://docs.projectcalico.org/manifests/custom-resources.yaml
+    url: http://docs.projectcalico.org/manifests/custom-resources.yaml
     dest: ~/custom-resources.yaml
   become: yes
 
