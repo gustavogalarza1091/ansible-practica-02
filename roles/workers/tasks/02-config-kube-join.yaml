@@ -8,5 +8,5 @@
 
 - name: kubeadm join X.X.X.X:6443 --token --discovery-token-ca-cert-hash sha256
   shell: | 
-   {{kubeadm_join.stdout}}
+   {{kubeadm_join.stdout}} --ignore-preflight-errors=all
   become: yes

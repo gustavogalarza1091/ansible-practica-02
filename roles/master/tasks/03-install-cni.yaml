@@ -7,7 +7,7 @@
 - name: kubeadm init
   when: reset_cluster is succeeded
   shell: |
-    kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
+    kubeadm init --pod-network-cidr {{network_cidr}} --ignore-preflight-errors=all
   register: init_cluster
   become: yes
 

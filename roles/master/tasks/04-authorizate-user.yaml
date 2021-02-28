@@ -1,17 +1,17 @@
 ---
 
-- name: mkdir -p /root/.kube
-  command: "mkdir -p /root/.kube"
+- name: mkdir -p /home/ansible/.kube
+  command: "mkdir -p /home/ansible/.kube"
   become: yes
 
-- name: cp -i /etc/kubernetes/admin.conf /root/.kube/config
-  command: "cp -i /etc/kubernetes/admin.conf /root/.kube/config"
+- name: cp -i /etc/kubernetes/admin.conf /home/ansible/.kube/config
+  command: "cp -i /etc/kubernetes/admin.conf /home/ansible/.kube/config"
   become: yes
 
-- name: chown $(id -u):$(id -g) /root/.kube/config
+- name: chown $(id -u):$(id -g) /home/ansible/.kube/config
   become: yes
   file:
-      path: /root/.kube/config
+      path: /home/ansible/.kube/config
       owner: "{{ ansible_user }}"
       group: "{{ ansible_user }}"
       mode: 0644

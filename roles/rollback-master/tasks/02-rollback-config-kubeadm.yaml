@@ -9,7 +9,7 @@
   command: "firewall-cmd --permanent --remove-rich-rule 'rule family=ipv4 source address={{worker2_ip}} accept'"
   become: yes
 
-- name: firewall-cmd --zone=public --permanent --remove-rich-rule 'rule family=ipv4 source address=172.17.0.0/16 accept'
+- name: firewall-cmd --zone=public --permanent --remove-rich-rule 'rule family=ipv4 source address=172.17.0.1/16 accept'
   command: "firewall-cmd --zone=public --permanent --remove-rich-rule 'rule family=ipv4 source address={{master_ip}} accept'"
   become: yes
 
