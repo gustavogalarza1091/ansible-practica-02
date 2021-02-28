@@ -1,5 +1,9 @@
 ---
 
+- name: kubeadm reset -f
+  command: "kubeadm reset -f"
+  become: yes
+
 - name: rm -rf ~/tmp.conf
   command: "rm -rf ~/tmp.conf"
   become: yes

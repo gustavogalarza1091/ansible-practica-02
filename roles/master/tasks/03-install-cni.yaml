@@ -2,8 +2,8 @@
 
 - name: kubeadm init
   tasks:
-    - name: kubeadm init --pod-network-cidr 192.169.0.0/16
-      shell: kubeadm init --pod-network-cidr 192.169.0.0/16 | grep kubeadm | awk '{print $1}'
+    - name: kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
+      shell: kubeadm init --pod-network-cidr 192.169.0.0/16  --ignore-preflight-errors=all| grep kubeadm | awk '{print $1}'
       register: kubeadm_init
       local_action: copy content={{kubeadm_init.stdout | regex_search(regexp,'^kubeadm$') }} dest=~/tmp.conf
 

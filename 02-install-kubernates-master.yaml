@@ -10,3 +10,10 @@
     - common
     - common-podman
     - master
+  tasks:
+    - name: kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
+      shell: kubeadm init --pod-network-cidr 192.169.0.0/16  --ignore-preflight-errors=all| grep kubeadm | awk '{print $1}'
+      register: kubeadm_init
+      
+    - debug: 
+        var: kubeadm_init.output
