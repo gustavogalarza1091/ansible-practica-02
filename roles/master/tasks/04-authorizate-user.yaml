@@ -9,5 +9,9 @@
   become: yes
 
 - name: chown $(id -u):$(id -g) /root/.kube/config
-  command: "chown $(id -u):$(id -g) /root/.kube/config"
   become: yes
+  file:
+      path: /root/.kube/config
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+      mode: 0644
