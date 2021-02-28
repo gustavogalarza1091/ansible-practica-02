@@ -1,5 +1,5 @@
 ---
 
-- name: rm -rf /home/ansible/.kube
-  command: "rm -rf /home/ansible/.kube"
+- name: rm -rf ~/.kube
+  command: "rm -rf ~/.kube"
   become: yes

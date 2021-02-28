@@ -1,6 +1,7 @@
 ---
 
 - include_tasks: 01-config-firewall.yaml
-- include_tasks: 02-config-kube-join.yaml
-- include_tasks: 03-ingress-controller.yaml
-- include_tasks: 04-create-user.yaml
+- include_tasks: 02-authorizate-user.yaml
+- include_tasks: 03-config-kube-join.yaml
+- include_tasks: 04-ingress-controller.yaml
+- include_tasks: 05-create-user.yaml
