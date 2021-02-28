@@ -19,13 +19,13 @@ hosts: [{
     host: 'nfs.local.pe'
   }]
 
-k8s.content: [
+k8s_content: [
   '>> net.bridge.bridge-nf-call-ip6tables = 1',
   '>> net.bridge.bridge-nf-call-iptables = 1',
   '>> EOF'
 ]
 
-kubernate.repo.content: [
+kubernate_repo_content: [
   '>> [kubernetes]',
   '>> name=Kubernetes',
   '>> baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64',
