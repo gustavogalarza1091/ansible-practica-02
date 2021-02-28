@@ -1,0 +1,9 @@
+---
+
+- name: copy file to workers
+  hosts: workers
+  gather_facts: false
+  tasks:
+    - name: Copy Remote-To-Remote
+      synchronize: src=~/tmp.conf dest=~/tmp.conf
+      delegate_to: master
