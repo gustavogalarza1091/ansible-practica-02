@@ -1,0 +1,6 @@
+---
+
+- include_tasks: 01-rollback-config-firewall.yaml
+- include_tasks: 02-rollback-config-kube-join.yaml
+- include_tasks: 03-rollback-ingress-controller.yaml
+- include_tasks: 04-rollback-create-user.yaml

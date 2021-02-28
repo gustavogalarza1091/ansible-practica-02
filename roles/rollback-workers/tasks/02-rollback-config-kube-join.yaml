@@ -1,0 +1,5 @@
+---
+
+- name: kubeadm reset -f
+  command: "kubeadm reset -f"
+  become: yes

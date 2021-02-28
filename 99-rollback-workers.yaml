@@ -1,0 +1,9 @@
+---
+
+- name: 99-rollback-workers
+  hosts: workers
+  vars_files:
+    - "group_vars/workers.yaml"
+  gather_facts: false
+  roles:
+    - rollback-workers

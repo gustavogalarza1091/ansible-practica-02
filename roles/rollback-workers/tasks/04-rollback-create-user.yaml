@@ -1,0 +1,16 @@
+---
+
+- name: deluser -md /home/kubeadmin kubeadmin
+  command: "deluser -md /home/{{user}} {{user}}"
+  become: yes
+
+- name: passwd kubeadmin
+  shell: |
+    passwd {{user}}
+    
+    EOF
+  become: yes
+
+- name: rm -rf /home/{{user}}/.kube
+  command: "rm -rf /home/{{user}}/.kube"
+  become: yes

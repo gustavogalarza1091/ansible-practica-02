@@ -1,0 +1,9 @@
+---
+
+- name: firewall-cmd --zone=public --permanent --add-port={10250,30000-32767}/tcp
+  command: "firewall-cmd --zone=public --permanent --add-port={10250,30000-32767}/tcp"
+  become: yes
+
+- name: firewall-cmd --reload
+  command: "firewall-cmd --reload"
+  become: yes

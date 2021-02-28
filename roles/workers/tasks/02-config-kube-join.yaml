@@ -1,0 +1,10 @@
+---
+
+- name: cat c | grep -A 2 "kubeadm join"
+  shell: "cat ~/tmp.conf | grep -A 2 \"kubeadm join\""
+  register: kubeadm_join
+  become: yes
+
+- name: kubeadm join X.X.X.X:6443 --token --discovery-token-ca-cert-hash sha256
+  command: "{{kubeadm_join}}"
+  become: yes

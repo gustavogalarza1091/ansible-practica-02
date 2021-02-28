@@ -1,0 +1,34 @@
+---
+
+- name: useradd -md /home/kubeadmin kubeadmin
+  command: "useradd -md /home/kubeadmin kubeadmin"
+  become: yes
+
+- name: passwd kubeadmin
+  shell: |
+    passwd {{user}}
+    
+    EOF
+  become: yes
+
+- name: mkdir -p /home/{{user}}/.kube
+  command: "mkdir -p /home/{{user}}/.kube"
+  become: yes
+
+- name: cp -i /etc/kubernetes/admin.conf /home/{{user}}/.kube/config
+  command: "cp -i /etc/kubernetes/admin.conf /home/{{user}}/.kube/config"
+  become: yes
+
+- name: chown $(id -u):$(id -g) /home/{{user}}/.kube/config
+  become: yes
+  file:
+      path: /home/{{user}}/.kube/config
+      owner: "{{user}}"
+      mode: 0644
+
+- name: agregando contenido a /etc/sudoers.d/{{user}}
+  shell: |
+      cat <<EOF > /etc/sudoers.d/{{user}}
+      ALL            ALL = (ALL) NOPASSWD: ALL
+      EOF
+  become: yes
