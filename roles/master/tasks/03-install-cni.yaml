@@ -1,0 +1,8 @@
+---
+
+- name: kubeadm init --pod-network-cidr 192.169.0.0/16
+  command: "kubeadm config images pull"
+  become: yes
+  register: kubeadm_init
+  local_action: copy content={{kubeadm_init.stdout | regex_search(regexp,'^kubeadm$') }} dest=~/tmp.conf
+

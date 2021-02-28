@@ -1,0 +1,13 @@
+---
+
+- name: mkdir -p /root/.kube
+  command: "mkdir -p /root/.kube"
+  become: yes
+
+- name: cp -i /etc/kubernetes/admin.conf /root/.kube/config
+  command: "cp -i /etc/kubernetes/admin.conf /root/.kube/config"
+  become: yes
+
+- name: chown $(id -u):$(id -g) /root/.kube/config
+  command: "chown $(id -u):$(id -g) /root/.kube/config"
+  become: yes

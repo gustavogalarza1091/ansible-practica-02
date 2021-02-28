@@ -1,0 +1,7 @@
+---
+
+- include_tasks: 01-config-firewall.yaml
+- include_tasks: 02-config-kubeadm.yaml
+- include_tasks: 03-install-cni.yaml
+- include_tasks: 04-authorizate-user.yaml
+- include_tasks: 05-install-sdn.yaml
