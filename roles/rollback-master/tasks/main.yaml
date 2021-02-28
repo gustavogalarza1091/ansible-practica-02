@@ -1,5 +1,7 @@
 ---
 
-- include_tasks: 01-rollback-install-cni.yaml
-- include_tasks: 02-rollback-authorizate-user.yaml
-- include_tasks: 03-rollback-install-sdn.yaml
+- include_tasks: 01-config-firewall.yaml
+- include_tasks: 02-rollback-config-kubeadm.yaml
+- include_tasks: 03-rollback-install-cni.yaml
+- include_tasks: 04-rollback-authorizate-user.yaml
+- include_tasks: 05-rollback-install-sdn.yaml
