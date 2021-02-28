@@ -1,14 +1,17 @@
 ---
 - name: kubeadm reset
-  shell: "sudo kubeadm reset --ignore-preflight-errors=all --force"
+  shell: "kubeadm reset --ignore-preflight-errors=all --force"
   register: reset_cluster
+  become: yes
 
 - name: kubeadm init
   when: reset_cluster is succeeded
   shell: |
-    sudo kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
+    kubeadm init --pod-network-cidr 192.169.0.0/16 --ignore-preflight-errors=all
   register: init_cluster
+  become: yes
 
 - name: copy init_cluster
   when: init_cluster is succeeded
-  local_action: copy content={{init_cluster.stdout | regex_search(regexp,'^kubeadm$') }} dest=~/tmp.conf
+  local_action: copy content={{init_cluster.stdout}} dest=~/tmp.conf
+  become: yes
