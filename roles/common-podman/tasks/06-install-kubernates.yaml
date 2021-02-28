@@ -5,7 +5,7 @@
   become: yes
 
 - name: agregando contenido a /etc/yum.repos.d/kubernetes.repo
-  cmd: |
+  shell: |
       cat <<EOF > /etc/yum.repos.d/kubernetes.repo
       [kubernetes]
       name=Kubernetes
