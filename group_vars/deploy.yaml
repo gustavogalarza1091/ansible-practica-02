@@ -1,0 +1,11 @@
+---
+
+path: '/home/ansible/ansible-practica-02/2048-game/nfs/'
+
+persistent_volume: 'nfs.yaml'
+
+volume_to_pod: 'nfs-vpc.yaml'
+
+app_file: 'game.yaml'
+
+
