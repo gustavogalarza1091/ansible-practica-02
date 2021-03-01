@@ -1,13 +1,12 @@
 ---
 
-- name: useradd -md /home/kubeadmin kubeadmin
-  command: "useradd -md /home/kubeadmin kubeadmin"
-  become: yes
-
-- name: passwd kubeadmin
-  user: 
+- name: Add user "nagios"  
+  user:
     name: kubeadmin
-    passowrd: ''
+    shell: /home/kubeadmin
+    append: yes
+    comment: "kubeadmin nologin User"
+    state: present
   become: yes
 
 - name: mkdir -p /home/{{user}}/.kube
