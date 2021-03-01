@@ -49,8 +49,8 @@ metadata:
   namespace: game
   labels:
     app: game
-#  annotations:
-#    haproxy.org/path-rewrite: "/"
+  annotations:
+    haproxy.org/path-rewrite: "/"
 spec:
   rules:
   - host: game.bar
