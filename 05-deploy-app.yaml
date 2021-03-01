@@ -1,0 +1,13 @@
+---
+
+- name: deploy app
+  hosts: master
+  vars_files:
+    - "group_vars/common.yaml"
+    - "group_vars/common-podman.yaml"
+    - "group_vars/workers.yaml"
+  gather_facts: false
+  roles:
+    - common
+    - common-podman
+    - workers

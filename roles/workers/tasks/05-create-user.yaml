@@ -1,6 +1,6 @@
 ---
 
-- name: Add user "nagios"  
+- name: Add user "kubeadmin"  
   user:
     name: kubeadmin
     shell: /home/kubeadmin
