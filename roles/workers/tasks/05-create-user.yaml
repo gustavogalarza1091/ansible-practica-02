@@ -5,10 +5,9 @@
   become: yes
 
 - name: passwd kubeadmin
-  shell: |
-    passwd {{user}}
-    
-    EOF
+  user: 
+    name: kubeadmin
+    passowrd: ''
   become: yes
 
 - name: mkdir -p /home/{{user}}/.kube
