@@ -2,7 +2,7 @@
 
 path: '/home/ansible/ansible-practica-02/2048-game/'
 
-namespace_game: game
+namespace_game: game2
 
 persistent_volume: 'nfs.yaml'
 
