@@ -2,6 +2,8 @@
 
 - name: deploy app
   hosts: master
+  vars_files:
+    - "group_vars/deploy.yaml"
   gather_facts: false
   roles:
     - deploy-app
