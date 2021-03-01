@@ -1,9 +1,9 @@
 ---
 
-- name: deluser -md /home/kubeadmin kubeadmin
-  command: "deluser -md /home/{{user}} {{user}}"
+- name: userdel kubeadmin
+  command: "userdel {{user}}"
   become: yes
 
-- name: rm -rf /home/{{user}}/.kube
-  command: "rm -rf /home/{{user}}/.kube"
+- name: rm -rf /home/{{user}}
+  command: "rm -rf /home/{{user}}"
   become: yes
