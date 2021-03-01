@@ -1,9 +1,9 @@
 ---
 
-- name: systemctl disable docker
-  command: "systemctl disable docker"
-  become: yes
+#- name: systemctl disable docker
+#  command: "systemctl disable docker"
+#  become: yes
 
-- name: systemctl stop docker
-  command: "systemctl stop docker"
-  become: yes
+#- name: systemctl stop docker
+#  command: "systemctl stop docker"
+#  become: yes
