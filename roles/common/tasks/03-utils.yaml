@@ -5,11 +5,3 @@
 - name: dnf install nfs-utils nfs4-acl-tools wget -y
   command: "dnf install nfs-utils nfs4-acl-tools wget -y"
   become: yes
-
-- name: yum -y install buildah --allowerasing
-  command: "yum -y install buildah --allowerasing"
-  become: yes
-
-- name: yum -y install podman --allowerasing
-  command: "yum -y install podman --allowerasing"
-  become: yes
