@@ -19,7 +19,7 @@ spec:
       - name: game
         image: quay.io/rhte_2019/2048-game:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8082
         readinessProbe:
           httpGet:
             path: /
@@ -40,7 +40,7 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 8082
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
