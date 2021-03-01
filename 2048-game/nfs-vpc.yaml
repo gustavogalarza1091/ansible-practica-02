@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nfs-pvc
-  metadata: game
+  namespace: game
 spec:
   storageClassName: nfs
   accessModes:
