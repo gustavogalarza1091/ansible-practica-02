@@ -1,6 +1,6 @@
 ---
 
-path: '~/ansible-practica-02/2048-game/'
+path: '/home/ansible/ansible-practica-02/2048-game/'
 
 persistent_volume: 'nfs.yaml'
 
