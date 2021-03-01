@@ -1,7 +1,7 @@
 ---
 
 - name: deploy app
-  hosts: worker1.local
+  hosts: master
   vars_files:
     - "group_vars/deploy.yaml"
   gather_facts: false

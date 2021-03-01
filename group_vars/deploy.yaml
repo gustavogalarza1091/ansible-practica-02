@@ -2,6 +2,8 @@
 
 path: '/home/ansible/ansible-practica-02/2048-game/'
 
+namespace_game: game
+
 persistent_volume: 'nfs.yaml'
 
 volume_to_pod: 'nfs-vpc.yaml'

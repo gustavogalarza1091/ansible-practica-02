@@ -1,5 +1,9 @@
 ---
 
+- name: Se crea el namespace
+  command: "kubectl create namespace {{namespace_game}}"
+  become: yes
+
 - name: Se claimea el persistent volume
   command: "kubectl apply -f {{path}}{{persistent_volume}}"
   become: yes
