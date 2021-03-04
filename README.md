@@ -1,17 +1,29 @@
 # Ansible
 
-En este directorio se encuentran los playbooks para desplegar y configurar los laboratorios. 
-
-Una vez desplegadas las máquinas virtuales modifica el fichero de inventario [hosts](hosts) la máquina virtual para hacer los laboratorios de docker y la máquina para los laboratorios de podman.
-
-Configura un usuario en dichas máquinas para hacer ssh autenticándose con clave pública y con acceso a sudo sin contraseña tal y como se indica [aquí](../labs-ansible/00-primeros-pasos.md).
-
-Para configurar los laboratorios:
+Para configurar las maquinas virtuales:
 
 ```console
-[user@controller ansible]$ ansible-playbook -i hosts -l docker install-docker.yaml
+[user@controller ansible]$ ansible-playbook -i hosts 01-install-kubernates-nfs.yaml
 ...
-[user@controller ansible]$ ansible-playbook -i hosts -l podman install-podman.yaml
+[user@controller ansible]$ ansible-playbook -i hosts 02-install-kubernates-master.yaml
 ...
-[user@controller ansible]$
+[user@controller ansible]$ ansible-playbook -i hosts 03-copy-files-to-workers.yaml
+...
+[user@controller ansible]$ ansible-playbook -i hosts 04-install-kubernates-workers.yaml
+...
+[user@controller ansible]$ ansible-playbook -i hosts 05-deploy-app.yaml
+...
+```
+
+Rollbacks:
+
+```console
+[user@controller ansible]$ ansible-playbook -i hosts 99-rollback-workers.yaml
+...
+[user@controller ansible]$ ansible-playbook -i hosts 99-rollback-master.yaml
+...
+[user@controller ansible]$ ansible-playbook -i hosts 99-rollback-common-podman.yaml
+...
+[user@controller ansible]$ ansible-playbook -i hosts 99-rollback-nfs.yaml
+...
 ```
